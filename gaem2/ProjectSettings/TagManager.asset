@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Gem
+  - Cherry
+  - Spikes
+  - Enemy
+  - Floor
+  - Ground
+  - Ladders
+  - NextLevel
+  - EndLevel
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Ground
+  - Ladders
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1739771663
+    locked: 0
+  - name: Foreground
+    uniqueID: 3285938749
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Close Up
+    uniqueID: 1860506243
+    locked: 0
