@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Revolver : MonoBehaviour
+public class EnemyRevolver : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 15f;
-    [SerializeField] private float rateOfFire = 5f;
+    [SerializeField] private float rateOfFire = 3f;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform instLocation;
+    private GameObject instLocation;
     private float nextFire;
 
     void Start()
     {
         nextFire = Time.deltaTime + rateOfFire;
+        instLocation = GameObject.Find("Barrel");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if (Enemy.enemyShooting == true)
+        if (Enemy.shooting == true && PlayerHealth.alive == true)
         {
             fireRevolver();
         }
@@ -29,9 +30,10 @@ public class Revolver : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
-            GameObject bullet = Instantiate(bulletPrefab, instLocation.position, transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, instLocation.transform.position, instLocation.transform.rotation);
+            
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * bulletSpeed, ForceMode.VelocityChange);
+            rb.AddForce(-instLocation.transform.forward * bulletSpeed, ForceMode.Acceleration);
 
             nextFire = Time.time + rateOfFire;
 

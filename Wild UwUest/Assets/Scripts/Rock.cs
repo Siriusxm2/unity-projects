@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    [SerializeField] private float dmgPlayer = 25f;
+    [SerializeField] private float dmg = 25f;
     [SerializeField] private float timeDur = 2f;
     private float timer;
 
@@ -21,14 +21,19 @@ public class Rock : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Enemy en = collision.gameObject.GetComponent<Enemy>();
-            if (en != null)
-            {
-                en.takeDamage(dmgPlayer);
+    private void OnCollisionEnter(Collision coll) {
+        if (coll.gameObject.CompareTag("Player")) {
+            PlayerHealth ph = coll.gameObject.GetComponent<PlayerHealth>();
+            if (ph != null) {
+                ph.takeDMG(dmg);
+                Destroy(gameObject);
+            }
+        }
+
+        if (coll.gameObject.CompareTag("Enemy")) {
+            EnemyHealth eh = coll.gameObject.GetComponent<EnemyHealth>();
+            if (eh != null) {
+                eh.takeDamage(dmg);
                 Destroy(gameObject);
             }
         }
