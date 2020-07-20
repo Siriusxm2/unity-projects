@@ -14,7 +14,7 @@ public class EnemyRevolver : MonoBehaviour
     void Start()
     {
         nextFire = Time.deltaTime + rateOfFire;
-        instLocation = GameObject.Find("Barrel");
+        instLocation = GameObject.Find("Muzzle");
     }
 
 
