@@ -9,6 +9,7 @@ TagManager:
   - Walls
   - Rock
   - Waypoints
+  - Barrel
   layers:
   - Default
   - TransparentFX

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
     [SerializeField] private float dmg = 25f;
     [SerializeField] private float timeDur = 2f;
+    [SerializeField] private GameObject ps;
     private float timer;
+    private float particleTimer = 1f;
 
     void Start()
     {
@@ -17,6 +20,7 @@ public class Rock : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        particleTimer -= Time.deltaTime;
         if (timer <= 0f)
             Destroy(gameObject);
     }
@@ -37,5 +41,15 @@ public class Rock : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        if (coll.gameObject.CompareTag("Walls")) {
+            RockHit();
+        }
+    }
+
+    void RockHit() {
+        Destroy(gameObject);
+        GameObject go = Instantiate(ps, transform.position, transform.rotation);
+        Destroy(go, particleTimer);
     }
 }

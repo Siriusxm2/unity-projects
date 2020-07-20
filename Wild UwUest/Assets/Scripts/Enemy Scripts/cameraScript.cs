@@ -10,6 +10,7 @@ public class cameraScript : MonoBehaviour {
     // Assignables
     private NavMeshAgent agent;
     [HideInInspector] public GameObject target = null;
+    [SerializeField] private AudioSource asrc;
 
     // Enemy Movement
     [SerializeField] private float moveSpeed;
@@ -36,6 +37,7 @@ public class cameraScript : MonoBehaviour {
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
+        asrc = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -71,6 +73,7 @@ public class cameraScript : MonoBehaviour {
     private void Chase() {
 
         if (target != null) {
+            asrc.PlayOneShot(asrc.clip);
             float dis = Vector3.Distance(this.transform.position, target.transform.position);
             turnToLook();
             if (dis >= minDist) {
