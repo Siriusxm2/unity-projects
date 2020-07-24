@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 636530286}
   - component: {fileID: 636530294}
   - component: {fileID: 636530288}
-  - component: {fileID: 636530295}
+  - component: {fileID: 636530292}
   m_Layer: 10
   m_Name: Model
   m_TagString: Enemy
@@ -1453,6 +1453,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636530284}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &636530292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636530284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f188a44ffe772e44789f0e26a22240a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 300
+  waypoints: []
+  invSpot: {x: 0, y: 0, z: 0}
+  invWait: 5
+  sightDist: 10
+  state: 0
 --- !u!135 &636530293
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1488,26 +1506,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
---- !u!114 &636530295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636530284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430a77bd8e9453c4b93a4e16d29b211c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  asrc: {fileID: 636530286}
-  moveSpeed: 500
-  waypoints: []
-  player: {fileID: 0}
-  playerColl: {fileID: 444599457}
-  enemyCam: {fileID: 1775851598}
-  state: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
