@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     // Patrol
     public GameObject[] waypoints;
     private int wayPointInd;
-    public float patrolSpeed;
+    private float patrolSpeed;
 
     // Investigate
     [HideInInspector] public Vector3 invSpot;
@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
 
         state = Enemy.State.PATROL;
 
+        patrolSpeed = moveSpeed / 2;
         height = 0.488f;
         alive = true;
 
@@ -84,7 +85,7 @@ public class Enemy : MonoBehaviour
 
     private void Chase()
     {
-        
+
         if (target != null) {
             float dis = Vector3.Distance(this.transform.position, target.transform.position);
             turnToLook();
